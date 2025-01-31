@@ -1,0 +1,815 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(255, 255, 255); /* Sets the background color to black */
+    color: white; /* Sets the text color to white */
+    font-family: Arial, sans-serif; /* Sets the font to Arial */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the header span the full width */
+    background-color: transparent; /* Set background color to none (transparent) */
+    color: white;
+    z-index: 1000;
+    padding: 10px 20px; /* Adds padding inside the header */
+    text-align: left; /* Aligns the text to the left inside the header */
+    font-family: 'Roboto Condensed', sans-serif, bold; /* Apply the Anton font */
+}
+
+.main-header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 50px;
+    display: flex; /* Changes display to flex for centering */
+    justify-content: flex-end; /* Aligns the navigation items to the start */
+}
+
+.main-header nav ul li {
+    margin: 0 30px; /* Adds margin between the list items */
+}
+
+.main-header nav ul li a {
+    color: rgb(255, 255, 255); /* This sets the link text color to white */
+    text-decoration: none;
+    font-size: 20px; /* This sets the link text size to 30 pixels */
+    padding: 10px 20px; /* Adds padding inside the link */
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 15px;    
+    display: inline-block;
+    transition: background-color 0.3s ease color 0.3s ease; /* Adds a border around the link */
+}
+
+.main-header nav ul li a:hover {
+    background-color: rgb(0, 0, 0); /* Changes background color on hover */
+    color: rgb(255, 255, 255); /* Changes text color on hover */
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+section {
+    height: 100vh; /* Makes each section fill the entire viewport height */
+    padding: 100px 20px; /* Adds padding inside each section */
+    box-sizing: border-box; /* Ensures padding is included in the height calculation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aligns items to the left */
+    margin-top: 80px; /* Adds margin to separate sections from the header */
+    position: relative; /* Required for pseudo-element positioning */
+}
+
+#home {
+    text-align: left; /* Aligns the text inside the home section to the left */
+    padding-left: 20px; /* Moves the home section slightly to the right */
+    background-image: url('body.jpg'); /* Sets the background image */
+    background-size: cover; /* Ensures the background image covers the entire section */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    position: relative; /* Required for pseudo-element positioning */
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(179, 150, 150, 0.5); /* Semi-transparent overlay */
+    z-index: 1; /* Places the overlay behind the content */
+}
+
+#home h2, #home p {
+    margin: 100px; /* Removes margin from h2 and p elements */
+    padding: 0; /* Removes padding from h2 and p elements */
+    font-size: 80px;
+    position: absolute; /* Positions the text absolutely */
+    bottom: 200px; /* Moves the text to the bottom */
+    padding-top: 100px; /* Adds padding to the top of the text */
+    left: 100px; /* Aligns the text to the left */
+    z-index: 2; /* Ensures the text is above the overlay */
+    color: white; /* Sets the text color to white */
+    font-family: 'Roboto Condensed', sans-serif, bold; /* Apply the Anton font */
+}
+
+#home p {
+    font-size: 80px; /* Adjust this value to change the font size */
+    bottom: 200px; /* Moves the text slightly up */
+    text-shadow: 2px 2px 0 #000000, -2px -2px 0 #ffffff, 2px -2px 0 #fff, -2px 2px 0 #fff; /* Adds a white outline */
+}
+#home h2 {
+    font-size: 100px; /* Adjust this value to change the font size */
+    top:250px; /* Moves the text slightly up */
+    color: black;
+    text-shadow: 2px 2px 0 #000000, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff; /* Adds a white outline */
+}
+
+
+#typing-text {
+    display: block;
+    margin-top: 120px; /* Adjust this value to move the typing effect horizontally */
+    font-size: 40px; /* Adjust this value to change the font size */
+    border-right: 2px solid white; /* Cursor effect */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide the overflowing text */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    font-family: 'Roboto Condensed', sans-serif; /* Apply the Anton font */
+    position: relative; /* Ensures the text is above the overlay */
+    z-index: 2; /* Ensures the text is above the overlay */
+    top: 60px;
+    color: rgb(0, 0, 0);
+}
+
+.social-icons {
+    margin-top: 20px; /* Adjust this value to move the icons vertically */
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    gap: 20px; /* Space between icons */
+    position: relative; /* Ensures the icons are above the overlay */
+    z-index: 2; /* Ensures the icons are above the overlay */
+    top: 320px;
+    left: 180px;
+}
+
+.social-icon {
+    width: 48px; /* Adjust the size of the icons */
+    height: 48px;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.social-icon:hover {
+    transform: rotateY(700deg); /* Scale up the icon on hover */
+}
+
+#about h2 {
+    position: absolute;
+    top: 50px; /* Adjust this value to move the h2 element vertically */
+    right: 60%;
+    transform: translateX(-50%);
+    font-size: 90px; /* Adjust this value to change the font size */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000; /* Adds a white outline */
+}
+
+
+
+#about {
+    display: flex; /* Use flexbox to align the content */
+    align-items: center; /* Align items vertically */
+    margin-top: 100px; /* Adjust as needed to create space above */
+}
+
+#about-typing-text {
+    font-family: 'Roboto Condensed', sans-serif, bold;
+    font-size: 18px; /* Adjust text size as necessary */
+    color: black;
+    max-width: 50%; /* Limits the text width */
+    line-height: 1; /* Adjusts line height for better readability */
+    margin-right: -30px; /* Moves the text 20px to the left (adjust as needed) */
+}
+.about-photo {
+    width: 300px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px white; /* Adds a white outline */
+    display: block;
+    transform: translateY(-200px); /* Moves the photo 50px upwards */
+}
+
+#about p {
+    text-align: justify;
+    margin: 0;
+    font-family: 'Roboto Condensed', sans-serif, bold;
+    color: black;
+    width: 100%; /* Full width for the text */
+}
+
+.about-columns {
+    display: block; /* Treats the container as a block element */
+    width: 50%; /* Adjust the width as needed */
+    margin: 2; /* Removes auto margin */
+    position: relative; /* Makes the position relative */
+    left: 10px; /* Moves the container to the right side */
+    transform: translateX(0); /* Removes the horizontal translation */
+    bottom: 50px; /* Adjust the bottom position as needed */
+}
+#p1, #p2 {
+    text-align: justify; /* Justifies the text */
+    font-size: 15px; /* Smaller font size for p1 and p2 */
+    width: 200%; /* Full width */
+    font-family: 'Roboto Condensed', sans-serif, bold; /* Apply the Anton font */
+    margin: 0; /* Removes any margin */
+    padding: 0; /* Removes any padding */
+    display: inline-block; /* Display inline to stick together */
+    margin-right: 10px; /* Adds a small gap to the right */
+    padding-top: 5%;
+}
+
+.about-photo {
+    width: 500px; /* Adjust the width as needed */
+    height: 500px;
+    border-radius: 50%; /* Makes the photo circular */
+    margin-left: 200px; /* Moves the photo to the left */
+    margin-right: auto; /* Ensures the photo is aligned to the left */
+    display: block; /* Ensures the photo is displayed as a block element */
+    margin-top: 500px; /* Move the photo slightly up */
+    box-shadow: 0 0 0 5px white; /* Adds a white outline */
+}
+
+.about-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.vertical-sidebar {
+    position: fixed;
+    top: 50%;
+    left: 0; /* Initially positioned on the left */
+    transform: translateY(-50%);
+    background-color: white;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 30px;
+    transition: left 0.3s ease-in-out; /* Smooth transition for moving to the right */
+    z-index: 1000;
+}
+
+.vertical-sidebar:hover,
+.vertical-sidebar.move-right {
+    left: 20px; /* Moves the sidebar to the right when hovered or when the class is added */
+}
+
+.vertical-sidebar .home-icon,
+.vertical-sidebar .about-icon,
+.vertical-sidebar .skill-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    position: relative;
+    transition: filter 0.3s ease-in-out, background-color 0.3s ease-in-out; 
+}
+
+.vertical-sidebar .home-icon:hover,
+.vertical-sidebar .about-icon:hover,
+.vertical-sidebar .skill-icon:hover {
+    filter: invert(1);
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 40px;
+    padding: 30px;
+}
+
+.vertical-sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-sidebar nav ul li {
+    margin: 30px 0;
+    position: relative;
+}
+
+.vertical-sidebar nav ul li a {
+    color: rgb(14, 13, 13);
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.vertical-sidebar nav ul li a:hover .tooltip {
+    visibility: visible;
+}
+
+#skills h2 {
+    position: absolute;
+    top: 20px; /* Adjust this value to move the h2 element vertically */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-photo {
+    width: 500px; /* Adjust the width as needed */
+    height: 500px;
+    border-radius: 50%; /* Makes the photo circular */
+    margin-left: 200px; /* Moves the photo to the left */
+    margin-right: auto; /* Ensures the photo is aligned to the left */
+    display: block; /* Ensures the photo is displayed as a block element */
+    margin-top: 20%; /* Move the photo slightly up */
+    box-shadow: 0 0 0 5px rgb(0, 0, 0); /* Adds a white outline */
+}
+
+.about-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.vertical-sidebar {
+    position: fixed;
+    top: 50%;
+    left: 0; /* Initially positioned on the left */
+    transform: translateY(-50%);
+    background-color: white;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 30px;
+    transition: left 0.3s ease-in-out; /* Smooth transition for moving to the right */
+    z-index: 1000;
+}
+
+.vertical-sidebar:hover,
+.vertical-sidebar.move-right {
+    left: 20px; /* Moves the sidebar to the right when hovered or when the class is added */
+}
+
+.vertical-sidebar .home-icon,
+.vertical-sidebar .about-icon,
+.vertical-sidebar .skill-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    position: relative;
+    transition: filter 0.3s ease-in-out, background-color 0.3s ease-in-out; 
+}
+
+.vertical-sidebar .home-icon:hover,
+.vertical-sidebar .about-icon:hover,
+.vertical-sidebar .skill-icon:hover {
+    filter: invert(1);
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 40px;
+    padding: 30px;
+}
+
+.vertical-sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-sidebar nav ul li {
+    margin: 30px 0;
+    position: relative;
+}
+
+.vertical-sidebar nav ul li a {
+    color: rgb(14, 13, 13);
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.vertical-sidebar nav ul li a:hover .tooltip {
+    visibility: visible;
+}
+
+
+
+#skills {
+    background-color: black;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+h2 {
+    margin-top: -10px;
+}
+
+.box {
+    width: 400px;
+    border: 10px solid #000000;
+    border-radius: 10px;
+    padding: 50px;
+    padding-bottom: 10px;
+    box-shadow: 2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000; /* Adds a white outline */
+    position: relative; /* Required for pseudo-element positioning */  
+    left: 200px;
+bottom: 150px;
+}
+
+.box2 {
+    width: 350px;
+    height: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 50px;
+    padding-bottom: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 300px;
+    bottom: 100px;
+}
+ .box2 h2 {
+    position: absolute;
+    top: 20px; /* Adjust this value to move the h2 element vertically */
+    margin-left: -1%;
+    align-items: center;
+    transform: translateX(-50%);
+}
+#p1 {
+    margin-left: 50px;
+    /* Adjust this value to move it slightly to the right */
+}
+
+#p2 {
+    text-align: right;
+   
+}
+#p3 {
+    margin-top: 10px ;
+text-align: left;
+   
+}
+
+/* Add photo in skill section */
+
+#idea-image {
+    position: absolute;
+    width: 20px; /* Adjust size as needed */
+    margin-top: 1px;
+    width: 50px;
+    left: 40px;
+    filter: invert();
+}
+
+#work-image {
+    position: absolute;
+    width: 20px; /* Adjust size as needed */
+    margin-top: 1px;
+    width: 50px;
+    left: 230px;
+    filter: invert();
+}
+
+.skills-container, .language {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+  .skill, .language {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .language {
+    display: flex;
+    gap: 10px;
+    }
+
+  .skill img {
+    width: 50px;
+    height: 50px;
+    filter: invert(1);
+  }
+
+  input[type="range"] {
+    width: 60%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1px;
+    background: #ffffff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    box-shadow: 0 0 0 5px rgb(0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .box3 h2{
+    position: absolute;
+    margin-top: 65px; /* Adjust this value to move the h2 element vertically */
+}
+
+ .timeline {
+        position: relative;
+        padding: 20px 0;
+        margin-right: 450px;
+        bottom: 100px;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        border-left: 3px solid #ffffff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .timeline-item .year {
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .timeline-item h3, .timeline-item p {
+        margin: 5px 0;
+        color: #ffffff;
+    }
+    .timeline-item:hover {
+        background-color: #111111;
+        color: #000000;
+        border-left: 3px solid #0088f7;
+    }
+
+    .box4 {
+        width: 350px;
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        right: 150px;
+        top: 25%;
+        transform: translateY(-50%);
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+     .box4:hover {
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    .box4 h2 {
+        order: -1;
+        border-bottom: 2px solid #ffffff;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        align-self: flex-start;
+    }
+
+    .box4 ul {
+        list-style: none;
+        padding-top: 90px;
+    }
+
+    .box4 li {
+        margin-bottom: 10px;
+    }
+
+    .gif-container {
+        position: absolute;
+        left: 30px;
+        top: 60%;
+        transform: translateY(-50%);
+    }
+
+    .gif-container img {
+        width: 50px;
+        height: 50px;
+         filter: invert(1);
+    }
+
+    .box5 {
+        width: 300px;
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        right: 170px;
+        top: 55%;
+        transform: translateY(-50%);
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+     .box5 h2 {
+        order: -1;
+        border-bottom: 2px solid #ffffff;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        align-self: flex-start;
+    }
+ .box5 ul {
+        list-style: none;
+        padding-top: 95px;
+    }
+    .box5 li {
+        margin-bottom: 10px;
+        right: 100px;
+    }
+.box6 {
+    width: 350px;
+    height: 150px; /* Adjusted to fit the image */
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 850px;
+    bottom: 50px;
+    text-align: center;
+    overflow: hidden; /* Ensures no content spills out */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* Position Education h2 normally */
+.education h2 {
+    position: relative;
+    top: 100;
+    left: 0;
+    transform: none;
+    margin-bottom: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Hide pup.png by default */
+#pup-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make it fill the entire box */
+    height: 100%;
+    object-fit: cover; /* Ensure it covers the box without distortion */
+    display: none;
+}
+
+#school-image {
+    filter: invert();
+margin-bottom: 30px;
+margin-right: 500px;
+}
+
+#education p1 {
+    position: absolute;
+    margin-left: 100px;
+    /* Adjust this value to move it slightly to the right */
+}
+
+/* Show pup.png on hover, filling the entire box */
+.education:hover #pup-image {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+    opacity: 20;
+}
+
+.box7 {
+    width: 350px;
+    height: 180px; /* Adjusted to fit the content */
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 150px; /* Adjust position based on the skill section */
+    bottom: 50px;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000; /* Adjust as needed */
+}
+
+.hobbies-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.hobbies-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hobbies-icons div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+}
+
+.hobbies-icons img {
+    width: 40px;
+    height: 40px;
+    filter: invert(1);
+}
+
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Hide other content when hovering */
+.education:hover h2,
+.education:hover #school-image,
+.education:hover #p1 {
+    visibility: hidden;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+    
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
+}
